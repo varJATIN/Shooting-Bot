@@ -3,6 +3,7 @@
 // Thanks to Brett Beauregard for his nice PID library http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/
 //for dc motor position control according to setpoint .
 //setpoint to be recieved from python code for image detection via serial transmittor pins in arduino.
+//optical orange encoder 600ppm is used.
 #include <PinChangeInt.h>
 #include <PID_v1.h>
 #define encodPinA1      2                       // Quadrature encoder A pin

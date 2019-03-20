@@ -1,0 +1,32 @@
+
+1:  Image Thresholding
+  _Simple Thresholding_
+Here, the matter is straight forward. If pixel value is greater than a threshold value, it is assigned one value (may be white), else it is assigned another value (may be black). The function used is cv2.threshold. First argument is the source image, which should be a grayscale image. Second argument is the threshold value which is used to classify the pixel values. Third argument is the maxVal which represents the value to be given if pixel value is more than (sometimes less than) the threshold value.
+2: _Erosion and Dilation of images_ 
+    Morphological operations are a set of operations that process images based on shapes. They apply a structuring element to an input image and generate an output image.
+   The most basic morphological operations are two:
+   1)Erosion
+   2)Dilation
+   Basics of dilation:
+   a)Increases the object area 
+   b)Used to accentuate(making easily detectable/prominent)      feature
+   Uses of Erosion and Dilation:
+    a)Erosion: 
+    It is useful for removing small white noises.
+    Used to detach two connected objects etc.
+    b)Dilation: 
+    In cases like noise removal, erosion is followed by     dilation. Because, erosion removes white noises, but it     also shrinks our object. So we dilate it. Since noise     is gone, they won’t come back, but our object area     increases.
+It is also useful in joining broken parts of an object.
+
+3: findContours
+   Finds contours in a binary image.
+   ython: cv.FindContours(image, storage,    mode=CV_RETR_LIST, method=CV_CHAIN_APPROX_SIMPLE,    offset=(0, 0)) ? contours
+
+
+Parameters:
+image – Source, an 8-bit single-channel image. Non-zero pixels are treated as 1’s. Zero pixels remain 0’s, so the image is treated as binary . You can use compare() , inRange() , threshold() , adaptiveThreshold() , Canny() , and others to create a binary image out of a grayscale or color one.
+contours – Detected contours. Each contour is stored as a vector of points.
+hierarchy – Optional output vector, containing information about the image topology. It has as many elements as the number of contours.
+mode –  Contour retrieval mode  
+offset – Optional offset by which every contour point is shifted. This is useful if the contours are extracted from the image ROI and then they should be analyzed in the whole image context.
+The function retrieves contours from the binary image using the algorithm [Suzuki85]. The contours are a useful tool for shape analysis and object detection and recognition. See squares.c in the OpenCV sample directory.
